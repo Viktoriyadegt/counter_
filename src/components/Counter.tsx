@@ -1,5 +1,7 @@
 import React from 'react';
-import Button from "./Button";
+import {Button} from "./Button";
+import styled from "styled-components";
+import {Display} from "./Display";
 
 type CounterProps = {
     value: number
@@ -9,7 +11,7 @@ type CounterProps = {
     maxValue: number
 }
 
-const Counter = ({value, increase, reset, maxValue}: CounterProps) => {
+export const Counter = ({value, increase, reset, maxValue}: CounterProps) => {
 
     const increaseHandler = () => {
         increase()
@@ -19,18 +21,33 @@ const Counter = ({value, increase, reset, maxValue}: CounterProps) => {
         reset()
     }
     return (
-        <>
-            <div>
-                {value}
-            </div>
-            <div>
+        <Wrapper>
+            <WrapperDisplay>
+                <Display value={value} maxValue={maxValue} />
+            </WrapperDisplay>
+            <WrapperButton>
                 <Button name={'inc'} disabled={value === maxValue} callback={increaseHandler}/>
                 <Button name={'reset'} callback={resetHandler}/>
-            </div>
+            </WrapperButton>
 
-        </>
+        </Wrapper>
 
     );
 };
+const Wrapper = styled.section`
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 2px solid palevioletred;
+    margin: 5px;
+`;
 
-export default Counter;
+const WrapperDisplay = styled(Wrapper)`
+    margin: 0.5em;
+    padding: 2em 4em;
+`;
+
+const WrapperButton = styled(Wrapper)`
+    margin: 0.5em;
+    padding: 0 2em;
+`;
+
