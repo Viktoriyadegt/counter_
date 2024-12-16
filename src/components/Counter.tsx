@@ -9,9 +9,10 @@ type CounterProps = {
     reset: () => void
     minValue: number
     maxValue: number
+    //error:boolean
 }
 
-export const Counter = ({value, increase, reset, maxValue}: CounterProps) => {
+export const Counter = ({value, increase, reset, maxValue, }: CounterProps) => {
 
     const increaseHandler = () => {
         increase()
@@ -34,19 +35,19 @@ export const Counter = ({value, increase, reset, maxValue}: CounterProps) => {
 
     );
 };
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
     padding: 0.5em;
     border-radius: 5px;
     border: 2px solid palevioletred;
     margin: 5px;
 `;
 
-const WrapperDisplay = styled(Wrapper)`
+export const WrapperDisplay = styled(Wrapper)`
+    height: 100%;
     margin: 0.5em;
-    padding: 2em 4em;
 `;
 
-const WrapperButton = styled(Wrapper)`
+export const WrapperButton = styled(Wrapper)`
     margin: 0.5em;
     padding: 0 2em;
 `;

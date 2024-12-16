@@ -14,7 +14,7 @@ export const Display = ({value, maxValue} : DisplayPropsType) => {
     );
 };
 
-const StyledDisplay = styled.div<{$color?:boolean}>`
+export const StyledDisplay = styled.div<{$color?:boolean}>`
     color: ${props => props.color};
     font-size: 70px;
 `
