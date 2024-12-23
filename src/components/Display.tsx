@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import s from './Counter.module.css'
 
 type DisplayPropsType = {
     value: number;
@@ -8,13 +8,8 @@ type DisplayPropsType = {
 
 export const Display = ({value, maxValue} : DisplayPropsType) => {
     return (
-        <StyledDisplay color={value===maxValue? 'red' : 'wight'}>
+        <div>
             {value}
-        </StyledDisplay>
+        </div>
     );
 };
-
-export const StyledDisplay = styled.div<{$color?:boolean}>`
-    color: ${props => props.color};
-    font-size: 70px;
-`

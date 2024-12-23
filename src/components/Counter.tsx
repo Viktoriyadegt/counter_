@@ -1,7 +1,9 @@
 import React from 'react';
 import {Button} from "./Button";
-import styled from "styled-components";
 import {Display} from "./Display";
+import {StatusType} from "../App";
+import s from './Counter.module.css'
+
 
 type CounterProps = {
     value: number
@@ -9,10 +11,10 @@ type CounterProps = {
     reset: () => void
     minValue: number
     maxValue: number
-    //error:boolean
+    status: StatusType
 }
 
-export const Counter = ({value, increase, reset, maxValue, }: CounterProps) => {
+export const Counter = ({value, increase, reset, maxValue, minValue, status}: CounterProps) => {
 
     const increaseHandler = () => {
         increase()
@@ -22,33 +24,24 @@ export const Counter = ({value, increase, reset, maxValue, }: CounterProps) => {
         reset()
     }
     return (
-        <Wrapper>
-            <WrapperDisplay>
-                <Display value={value} maxValue={maxValue} />
-            </WrapperDisplay>
-            <WrapperButton>
-                <Button name={'inc'} disabled={value === maxValue} callback={increaseHandler}/>
-                <Button name={'reset'} callback={resetHandler}/>
-            </WrapperButton>
+        <div className={s.container}>
+            <div className={status === 'error' || value === maxValue ? s.display + ' ' + s.error : s.display}>
+                {
+                    status === 'display'
+                        ? <Display value={value} maxValue={maxValue}/>
+                        : status === 'settings'
+                            ? 'enter values and press SET'
+                            : 'Incorrect value'
+                }
+            </div>
+            <div className={s.containerButtons}>
+                <Button name={'inc'} disabled={value === maxValue || status === 'error'} callback={increaseHandler}/>
+                <Button name={'reset'} disabled={value === minValue || status === 'error'} callback={resetHandler}/>
+            </div>
 
-        </Wrapper>
+        </div>
 
     );
 };
-export const Wrapper = styled.section`
-    padding: 0.5em;
-    border-radius: 5px;
-    border: 2px solid palevioletred;
-    margin: 5px;
-`;
 
-export const WrapperDisplay = styled(Wrapper)`
-    height: 100%;
-    margin: 0.5em;
-`;
-
-export const WrapperButton = styled(Wrapper)`
-    margin: 0.5em;
-    padding: 0 2em;
-`;
 

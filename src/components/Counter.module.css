@@ -1,0 +1,36 @@
+.container {
+    width: 30%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 15px;
+    border: 5px solid rgba(44, 214, 236, 0.85);
+}
+
+.display {
+    border: 5px solid rgba(44, 214, 236, 0.85);
+    border-radius: 10px;
+    width: 70%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+    padding: 5px;
+    text-align: center;
+}
+
+.error{
+    color: red;
+}
+
+.containerButtons {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+
+}

@@ -1,9 +1,8 @@
 import React, {ChangeEvent} from 'react';
 import {Button} from "./Button";
+import s from './Settings.module.css'
+import {StatusType} from "../App";
 
-
-import {Wrapper, WrapperButton, WrapperDisplay} from "./Counter";
-import styled from "styled-components";
 
 type CounterProps = {
     value: number
@@ -13,47 +12,36 @@ type CounterProps = {
     maxValue: number
     changeMaxValue: (value: number) => void
     changeMinValue: (value: number) => void
-    setSettings:()=>void
-   // error:boolean
+    setSettings: () => void
+    status: StatusType | null
 }
 
-export const Settings = ({ maxValue, minValue, changeMaxValue, changeMinValue, setSettings,}: CounterProps) => {
+export const Settings = ({maxValue, minValue, changeMaxValue, changeMinValue, setSettings, status}: CounterProps) => {
 
-
-    const changeMaxValueHandler = (e:ChangeEvent<HTMLInputElement>)=>changeMaxValue(+e.currentTarget.value)
-    const changeMinValueHandler = (e:ChangeEvent<HTMLInputElement>)=>changeMinValue(+e.currentTarget.value)
+    const changeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => changeMaxValue(+e.currentTarget.value)
+    const changeMinValueHandler = (e: ChangeEvent<HTMLInputElement>) => changeMinValue(+e.currentTarget.value)
 
     return (
-        <Wrapper>
-            <WrapperDisplay>
-                <StyledDisplaySettings>
-                    <div>
-                        <span>max value:</span>
-                        <input type={'number'}
-                               value={maxValue}
-                               onChange={changeMaxValueHandler}/>
-                    </div>
-                    <div>
-                        <span>min value:</span>
-                        <input type={'number'}
-                               value={minValue}
-                               onChange={changeMinValueHandler} />
-                    </div>
-                </StyledDisplaySettings>
-            </WrapperDisplay>
-            <WrapperButton>
-                <Button name={'set'} callback={setSettings}/>
-            </WrapperButton>
+        <div className={s.containerSettings}>
+            <div className={s.settings}>
+                <div className={s.spanAndInputContainer}>
+                    <span className={s.span}>max value:  </span>
+                    <input className={status === 'error' ? s.input + ' ' + s.error : s.input} type={'number'}
+                           value={maxValue}
+                           onChange={changeMaxValueHandler}/>
+                </div>
+                <div className={s.spanAndInputContainer}>
+                    <span className={s.span}>min value:  </span>
+                    <input className={status === 'error' ? s.input + ' ' + s.error : s.input} type={'number'}
+                           value={minValue}
+                           onChange={changeMinValueHandler}/>
+                </div>
+            </div>
+            <div className={s.containerSettingsButtons}>
+                <Button name={'set'} callback={setSettings} disabled={status === 'error'}/>
+            </div>
 
-        </Wrapper>
+        </div>
 
     );
 };
-
-const StyledDisplaySettings = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-end;
-    height: 90px;
-`
