@@ -22,16 +22,18 @@ export const Counter = ({value, increase, reset, maxValue, minValue, status}: Co
     const resetHandler = () => {
         reset()
     }
+
+    const stylesForCounter =
+        status === 'error' ? s.display + ' ' + s.error
+            : status === 'settings' ? s.display + ' ' + s.settings
+                : s.display
+
     return (
         <div className={s.container}>
-            <div className={status === 'error' || value === maxValue
-                ? s.display + ' ' + s.error
-                : status === 'settings'
-                    ? s.display + ' ' + s.settings
-                    : s.display}>
+            <div className={stylesForCounter}>
                 {
                     status === 'display'
-                        ? <>{value}</>
+                        ? <div className={value === maxValue ? s.error : ''}>{value}</div>
                         : status === 'settings'
                             ? 'enter values and press SET'
                             : 'Incorrect value'
