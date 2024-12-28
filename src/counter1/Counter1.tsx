@@ -15,19 +15,24 @@ function Counter1() {
 
     useEffect(() => {
         let startValue = localStorage.getItem('startValue')
-        if (startValue) {
-            setValue(JSON.parse(startValue))
-        }
-        let minValue = localStorage.getItem('minValue')
-        if (minValue) {
-            setMinValue(JSON.parse(minValue))
-        }
-        let maxValue = localStorage.getItem('maxValue')
-        if (maxValue) {
-            setMaxValue(JSON.parse(maxValue))
+        startValue && setValue(JSON.parse(startValue))
 
+        let minValue = localStorage.getItem('minValue')
+        minValue && setMinValue(JSON.parse(minValue))
+
+        let maxValue = localStorage.getItem('maxValue')
+        maxValue && setMaxValue(JSON.parse(maxValue))
+
+        if (maxValue && minValue) {
+            if (JSON.parse(maxValue) <= minValue || JSON.parse(minValue) < 0) {
+                setStatus('error')
+            } else {
+                setStatus('settings')
+            }
         }
+
     }, [])
+
 
     useEffect(() => {
         localStorage.setItem('startValue', JSON.stringify(value));
