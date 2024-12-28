@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import s from './Counter1.module.css'
-import {Counter} from "../components/Counter";
-import {Settings} from "../components/Settings";
+import {Display} from "./Display";
+import {Settings} from "./Settings";
 
 export type StatusType = 'display' | 'settings' | 'error'
 
@@ -27,7 +27,7 @@ function Counter1() {
             if (JSON.parse(maxValue) <= minValue || JSON.parse(minValue) < 0) {
                 setStatus('error')
             } else {
-                setStatus('settings')
+                setStatus('display')
             }
         }
 
@@ -63,7 +63,7 @@ function Counter1() {
     const changeMinValue = (minValue: number) => {
 
         setMinValue(minValue)
-        if (maxValue <= minValue || minValue < 0) {
+        if (maxValue<= minValue || minValue < 0) {
             setStatus('error')
         } else {
             setStatus('settings')
@@ -79,7 +79,7 @@ function Counter1() {
 
     return (
         <div className={s.Counter1}>
-            <Counter value={value}
+            <Display value={value}
                      increase={increase}
                      reset={reset}
                      minValue={minValue}

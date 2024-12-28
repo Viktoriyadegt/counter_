@@ -1,7 +1,7 @@
 import React from 'react';
-import {Button} from "./Button";
+import {Button} from "../components/Button";
 import {StatusType} from "../App";
-import s from './Counter.module.css'
+import s from './Display.module.css'
 
 
 type CounterProps = {
@@ -13,7 +13,7 @@ type CounterProps = {
     status: StatusType
 }
 
-export const Counter = ({value, increase, reset, maxValue, minValue, status}: CounterProps) => {
+export const Display = ({value, increase, reset, maxValue, minValue, status}: CounterProps) => {
 
     const increaseHandler = () => {
         increase()
@@ -41,7 +41,7 @@ export const Counter = ({value, increase, reset, maxValue, minValue, status}: Co
             </div>
             <div className={s.containerButtons}>
                 <Button name={'inc'} disabled={value === maxValue || status === 'error'} callback={increaseHandler}/>
-                <Button name={'reset'} disabled={value === minValue || status === 'error'} callback={resetHandler}/>
+                <Button name={'reset'} disabled={value=== minValue || status === 'error'} callback={resetHandler}/>
             </div>
 
         </div>

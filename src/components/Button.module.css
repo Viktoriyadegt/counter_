@@ -1,12 +1,13 @@
 .button {
-    width: 35%;
-    height: 50px;
+    width: 25%;
+    height: 40px;
     background-color:rgba(44, 214, 236, 0.85);
     border: none;
     border-radius: 5px;
     color: white;
     font-size: 30px;
     cursor: pointer;
+    margin: 10px;
 }
 
 .button:focus {
