@@ -1,6 +1,5 @@
 import React from 'react';
 import {Button} from "./Button";
-import {Display} from "./Display";
 import {StatusType} from "../App";
 import s from './Counter.module.css'
 
@@ -25,10 +24,14 @@ export const Counter = ({value, increase, reset, maxValue, minValue, status}: Co
     }
     return (
         <div className={s.container}>
-            <div className={status === 'error' || value === maxValue ? s.display + ' ' + s.error : s.display}>
+            <div className={status === 'error' || value === maxValue
+                ? s.display + ' ' + s.error
+                : status === 'settings'
+                    ? s.display + ' ' + s.settings
+                    : s.display}>
                 {
                     status === 'display'
-                        ? <Display value={value} maxValue={maxValue}/>
+                        ? <>{value}</>
                         : status === 'settings'
                             ? 'enter values and press SET'
                             : 'Incorrect value'
