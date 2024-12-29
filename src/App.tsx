@@ -6,10 +6,7 @@ export type StatusType = 'display' | 'settings' | 'error'
 
 function App() {
 
-    return <>
-        <Counter1/>
-    </>
-
+    return  <Counter1/>
 }
 
 export default App;

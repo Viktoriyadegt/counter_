@@ -13,7 +13,7 @@ type CounterProps = {
     changeMaxValue: (value: number) => void
     changeMinValue: (value: number) => void
     setSettings: () => void
-    status: StatusType | null
+    status: StatusType
 }
 
 export const Settings = ({maxValue, minValue, changeMaxValue, changeMinValue, setSettings, status}: CounterProps) => {

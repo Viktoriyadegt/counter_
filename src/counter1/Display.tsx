@@ -40,8 +40,8 @@ export const Display = ({value, increase, reset, maxValue, minValue, status}: Co
                 }
             </div>
             <div className={s.containerButtons}>
-                <Button name={'inc'} disabled={value === maxValue || status === 'error'} callback={increaseHandler}/>
-                <Button name={'reset'} disabled={value=== minValue || status === 'error'} callback={resetHandler}/>
+                <Button name={'inc'} disabled={value === maxValue || status !== 'display'} callback={increaseHandler}/>
+                <Button name={'reset'} disabled={value=== minValue || status!=='display'} callback={resetHandler}/>
             </div>
 
         </div>
