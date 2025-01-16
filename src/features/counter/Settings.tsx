@@ -6,13 +6,9 @@ import {useAppDispatch, useAppSelector} from "../../app/hooks";
 import {selectMaxValue, selectMinValue, selectStatus} from "../model/app-selector";
 
 
-type CounterProps = {
 
-}
+export const Settings = () => {
 
-export const Settings = ({ }: CounterProps) => {
-
-    console.log('settings is called')
 
     const maxValue = useAppSelector(selectMaxValue)
     const minValue = useAppSelector(selectMinValue)

@@ -9,8 +9,6 @@ import {selectCount, selectMaxValue, selectMinValue, selectStatus} from "../mode
 
 export const Display = () => {
 
-    console.log('display is called')
-
     const count = useAppSelector(selectCount)
     const minValue = useAppSelector(selectMinValue)
     const maxValue = useAppSelector(selectMaxValue)

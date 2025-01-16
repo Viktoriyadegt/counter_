@@ -6,7 +6,6 @@ import {Settings} from "./Settings";
 export type StatusType = 'display' | 'settings' | 'error'
 
 function Counter() {
-    console.log('counter is called')
 
     return (
         <div className={s.Counter1}>
