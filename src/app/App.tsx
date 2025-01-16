@@ -1,12 +1,12 @@
 import React from 'react';
-import Counter1 from "./counter1/Counter1";
+import Counter from "../features/counter/Counter";
 
 
 export type StatusType = 'display' | 'settings' | 'error'
 
 function App() {
 
-    return  <Counter1/>
+    return  <Counter/>
 }
 
 export default App;

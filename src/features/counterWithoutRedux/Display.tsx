@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button} from "../components/Button";
-import {StatusType} from "../App";
+import {Button} from "../../common/Button";
+import {StatusType} from "../../app/App";
 import s from './Display.module.css'
 
 

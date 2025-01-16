@@ -1,7 +1,7 @@
 import React, {ChangeEvent} from 'react';
-import {Button} from "../components/Button";
+import {Button} from "../../common/Button";
 import s from './Settings.module.css'
-import {StatusType} from "../App";
+import {StatusType} from "../../app/App";
 
 
 type CounterProps = {
