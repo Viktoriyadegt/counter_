@@ -1,0 +1,43 @@
+.container {
+    width: 30%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 15px;
+    border: 3px solid rgba(44, 214, 236, 0.85);
+}
+
+.display {
+    border: 3px solid rgba(44, 214, 236, 0.85);
+    border-radius: 10px;
+    width: 80%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+.error{
+    color: red;
+}
+
+.settings{
+    font-size: 30px;
+}
+
+.containerButtons {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    border: 3px solid rgba(44, 214, 236, 0.85);
+    border-radius: 10px;
+    padding: 5px;
+    gap: 10px;
+}
